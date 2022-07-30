@@ -24,7 +24,6 @@ import {
   ProjectAreaWrapperColumns,
 } from "./style";
 
-
 export const Home = (): JSX.Element => {
   return (
     <main>
@@ -35,15 +34,16 @@ export const Home = (): JSX.Element => {
               Criando experiências por meio da tecnologia{" "}
             </Text>
             <Text type="body1" color="grey6">
-              Sou estudante de programação na Kenzie Academy Brasil, participei
-              de diversos projetos resolvendo problemas de alto nível e
-              desenvolvendo habilidades
+              Sou estudante de programação web na Kenzie Academy Brasil.
+              Participei de diversos projetos resolvendo problemas de alto nível
+              e desenvolvendo várias habilidades.
             </Text>
             <HeaderButtonsArea>
               <Button as="a" href="#projetos">
                 Projetos
               </Button>
-              <Button as="a" href="#tecnologias" type="btLink" color="grey5">
+              <Button as="a" href="#tecnologias">
+                {/* <Button as="a" href="#tecnologias" type="btLink" color="grey5"> */}
                 Tecnologias
               </Button>
             </HeaderButtonsArea>
@@ -53,7 +53,7 @@ export const Home = (): JSX.Element => {
       <StackSection id="tecnologias">
         <Container>
           <Text as="h4" type="heading3" color="grey1">
-            Ferramentas que domino
+            Tecnologias :
           </Text>
           <StackCards>
             {stackData.map((stack, index) => (
@@ -87,7 +87,8 @@ export const Home = (): JSX.Element => {
               <Text type="body1" color="grey2" css={{ marginBottom: "$2" }}>
                 Projetos
               </Text>
-              <Text as="h3" type="heading2" color="grey1">
+              <Text as="h3" color="brand1" type="heading2">
+                {/* <Text as="h3" type="heading2" color="grey1"> */}
                 Originalidade e{" "}
                 <Text as="span" color="brand1" type="heading2">
                   dedicação

@@ -18,6 +18,7 @@ interface ReposType {
   description: string;
   git_url: string;
   homepage: string;
+  url: string;
 }
 
 export const Project = (): JSX.Element => {
@@ -27,11 +28,21 @@ export const Project = (): JSX.Element => {
     const fetchData = async () => {
       const data: Response = await fetch(
         `https://api.github.com/users/${userData.githubUser}/repos`
-      )
+      );
 
       const json = await data.json();
+      const ar = [
+        482572920, 509248137, 477460397, 519367834, 434942402, 510162796,
+      ];
+      let filteredRepositories = json.filter((el) => {
+        if (!ar.includes(el.id)) {
+          el.git_url = "https://" + el.git_url.slice(6);
+          return el;
+        }
+        return;
+      });
 
-      setRepositories(json);
+      setRepositories(filteredRepositories);
 
       if (!data.ok) {
         throw data;
@@ -44,43 +55,52 @@ export const Project = (): JSX.Element => {
 
   return (
     <>
-      {repositories?.map((repository) => (
-        <ProjectWrapper key={repository.id}>
-          <Text
-            as="h2"
-            type="heading3"
-            css={{ marginBottom: "$3" }}
-            color="grey1"
-          >
-            {repository.name}
-          </Text>
+      {repositories?.map((repository) => {
+        return (
+          <ProjectWrapper key={repository.id}>
+            <Text
+              as="h2"
+              type="heading3"
+              css={{ marginBottom: "$3" }}
+              color="grey1"
+            >
+              {repository.name.replace(/[-_]/gi, " ")}
+            </Text>
 
-          {repository.language && (
-            <ProjectStack>
-              <Text type="body2">Linguagem:</Text>
-              <ProjectStackTech>
-                <Text color="brand1" type="body2">
-                  {repository.language}
-                </Text>
-              </ProjectStackTech>
-            </ProjectStack>
-          )}
+            {repository.language && (
+              <ProjectStack>
+                <Text type="body2">Linguagem Predominante:</Text>
+                <ProjectStackTech>
+                  <Text color="brand1" type="body2">
+                    {repository.language}
+                  </Text>
+                </ProjectStackTech>
+              </ProjectStack>
+            )}
 
-          <Text type="body1" color="grey2">
-            {repository.description}
-          </Text>
-          <ProjectLinks>
-            <ProjectLink target="_blank" href={repository.git_url}>
-              <FaGithub /> Github Code
-            </ProjectLink>
-            {repository.homepage && (
-              <ProjectLink target="_blank" href={repository.homepage}>
+            <Text type="body1" color="grey2">
+              {repository.description}
+            </Text>
+            <ProjectLinks>
+              <ProjectLink
+                href={repository.git_url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaGithub /> Github Code
+              </ProjectLink>
+
+              <ProjectLink
+                href={`https://scush989898.github.io/${repository.name}/`}
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaShare /> Aplicação
               </ProjectLink>
-            )}
-          </ProjectLinks>
-        </ProjectWrapper>
-      ))}
+            </ProjectLinks>
+          </ProjectWrapper>
+        );
+      })}
     </>
   );
 };

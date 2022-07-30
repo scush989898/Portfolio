@@ -38,7 +38,9 @@ export const NavBar = (): JSX.Element => {
         <NavbarMobileArea>
           <LogoTipo>
             <LogoTipoImage
-              src={`https://github.com/${userData.githubUser}.png`}
+              src={
+                "https://media-exp1.licdn.com/dms/image/C4E03AQGvUM-qG6Mu6g/profile-displayphoto-shrink_800_800/0/1628454802283?e=1664409600&v=beta&t=lLeSMwvotAIZ8slGxH69UGnA4qeJ3goOcaakZGmq4KU"
+              }
               alt={userData.nameUser}
               title={userData.nameUser}
               width={"48px"}
