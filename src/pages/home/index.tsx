@@ -85,10 +85,9 @@ export const Home = (): JSX.Element => {
             </ProjectsAreaSocialMediaMessage>
             <ProjectsAreaContent>
               <Text type="body1" color="grey2" css={{ marginBottom: "$2" }}>
-                Projetos
+                Meus Projetos
               </Text>
               <Text as="h3" color="brand1" type="heading2">
-                {/* <Text as="h3" type="heading2" color="grey1"> */}
                 Originalidade e{" "}
                 <Text as="span" color="brand1" type="heading2">
                   dedicação

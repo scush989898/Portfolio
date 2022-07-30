@@ -78,9 +78,6 @@ export const Project = (): JSX.Element => {
               </ProjectStack>
             )}
 
-            <Text type="body1" color="grey2">
-              {repository.description}
-            </Text>
             <ProjectLinks>
               <ProjectLink
                 href={repository.git_url}
@@ -91,7 +88,7 @@ export const Project = (): JSX.Element => {
               </ProjectLink>
 
               <ProjectLink
-                href={`https://scush989898.github.io/${repository.name}/`}
+                href={repository.description}
                 target="_blank"
                 rel="noreferrer"
               >
