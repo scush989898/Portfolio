@@ -33,7 +33,7 @@ export const Project = (): JSX.Element => {
       const json = await data.json();
       const ar = [
         482572920, 509248137, 477460397, 519367834, 434942402, 510162796,
-        522720361,529920781,529992087
+        522720361, 529920781, 529992087,
       ];
       let filteredRepositories = json.filter((el: any) => {
         if (!ar.includes(el.id)) {
@@ -87,7 +87,7 @@ export const Project = (): JSX.Element => {
               >
                 <FaGithub /> Github Code
               </ProjectLink>
-              {repository.homepage !== null && (
+              {repository.homepage !== null && repository.homepage !== "" && (
                 <>
                   <ProjectLink
                     href={repository.homepage}
