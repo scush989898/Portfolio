@@ -39,7 +39,7 @@ export const NavBar = (): JSX.Element => {
           <LogoTipo>
             <LogoTipoImage
               src={
-                "https://media-exp1.licdn.com/dms/image/C4E03AQGvUM-qG6Mu6g/profile-displayphoto-shrink_800_800/0/1628454802283?e=1664409600&v=beta&t=lLeSMwvotAIZ8slGxH69UGnA4qeJ3goOcaakZGmq4KU"
+                "https://avatars.githubusercontent.com/u/79053378?v=4"
               }
               alt={userData.nameUser}
               title={userData.nameUser}
